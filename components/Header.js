@@ -8,8 +8,8 @@ export default function Header () {
                     </Link>
                     <nav className="space-x-4">
                         <Link href="/" className="text-blue-500">Home</Link>
-                        <Link href="/about" className="text-blue-500">Home</Link>
-                        <Link href="/contact" className="text-blue-500">Home</Link>
+                        <Link href="/about" className="text-blue-500">About</Link>
+                        <Link href="/contact" className="text-blue-500">Contact</Link>
                     </nav>
                 </div>
             </header>
