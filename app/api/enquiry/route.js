@@ -9,9 +9,9 @@ import EnquiryModel from "@/models/enquiryModel"
       
       await connectMongo()
       await EnquiryModel.create(enquiry)
-       return Response.json({message : "sucess"})
+       return Response.json({message : "Enquirey has been sent successfully"})
       
     }catch(error){
-      return Response.json({ message : error.message})
+      return Response.json({ message : error._message})
     }
  } 
