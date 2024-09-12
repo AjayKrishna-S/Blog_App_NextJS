@@ -6,6 +6,6 @@ const enquirySchema = new Schema({
   message : String
 })
 
-const enquiryModel = models.Enquiry || model("Enquiry",enquirySchema)
+const EnquiryModel = models.Enquiry || model("Enquiry",enquirySchema)
 
-export default enquiryModel;
+export default EnquiryModel;
