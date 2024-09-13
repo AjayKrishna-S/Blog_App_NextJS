@@ -39,7 +39,7 @@ export default function Home() {
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {posts.map((post,index) => (
-          <Link href={"post/"+post.id}>
+          <Link key={index} href={"post/"+post.id}>
             <div key={index} className="boder border-gray-200 p-4 ">
               <img className="w-full h-48 object-cover mb-4 rounded-md" src="https://www.squash.io/wp-content/uploads/2023/11/javascript-series.jpg" alt={post.title} />
               <h2 className="text-xl font-semibold mb-2">{post.title}</h2>

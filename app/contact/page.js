@@ -2,7 +2,7 @@
 import { useState } from "react"
 
 
-export default function contact(){
+export default function Contact(){
   const [inputs, setInputs] = useState({})
   const [message, setMessage ] = useState("")
 
