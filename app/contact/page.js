@@ -23,8 +23,6 @@ export default function contact(){
     .then(res => {
       setMessage(res.message)
       setInputs({})
-    })
-    .then(()=> {
       setTimeout(()=>{
         setMessage("")
       },3000)
