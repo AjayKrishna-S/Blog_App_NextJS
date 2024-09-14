@@ -8,28 +8,19 @@ if (!MONGO_URI) {
   );
 }
 
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
 async function connectMongo() {
-  if (cached.conn) {
-    return cached.conn;
-  }
 
-  if (!cached.promise) {
-    const opts = {
-      bufferCommands: false,
-    };
-
-    cached.promise = mongoose.connect(MONGO_URI, opts).then((mongoose) => {
-      return mongoose;
+    try {
+    await mongoose.connect(MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
     });
+    console.log('MongoDB Connected');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    throw new Error('Database connection failed');
   }
-  cached.conn = await cached.promise;
-  return cached.conn;
+
 }
 
 export default connectMongo;
