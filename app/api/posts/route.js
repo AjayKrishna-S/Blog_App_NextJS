@@ -19,7 +19,7 @@ export async function GET(req){
             await connectMongo()
             postData = await PostModel.find({})
         }
-    return Response.json(postData).status(200)
+    return Response.json(postData)
     }catch(error){
         return Response.json({message : error, success: false}).status(400)
     }
