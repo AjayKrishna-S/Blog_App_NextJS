@@ -1,7 +1,5 @@
-import { NextURL } from "next/dist/server/web/next-url"
 import PostModel from "../../../models/postModel"
 import connectMongo from "../../../utils/connectMongo"
-import { title } from "process"
 
 export async function GET(req){
     const query = req.nextUrl.searchParams.get("q")
@@ -10,6 +8,7 @@ export async function GET(req){
     try{
         if(query){
             await connectMongo()
+
             postData = await PostModel.find({
                 $or : [ 
                     {title : new RegExp(query, "i")},
@@ -20,8 +19,8 @@ export async function GET(req){
             await connectMongo()
             postData = await PostModel.find({})
         }
-            return Response.json(postData)
+    return Response.json(postData).status(200)
     }catch(error){
-        return Response.json({message : error.message})
+        return Response.json({message : error, success: false}).status(400)
     }
 }
